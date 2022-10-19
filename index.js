@@ -7,6 +7,13 @@ const app = express();
 //Importing connection
 const connection = require('./database/connection');
 
+//Importing routes
+
+//CategoriesController
+const categoriesController = require('./Categories/CategoriesControler');
+//ArticlesController
+const articlesController = require('./Articles/ArticlesController');
+
 //Setting view engine ejs
 app.set('view engine', 'ejs');
 
@@ -28,6 +35,12 @@ connection
     }).catch((err) => {
         console.log(err);
     })
+
+
+//Telling express to use categoriesController
+app.use("/", categoriesController);    
+//Telling express to use articlesController
+app.use("/", articlesController );
 
 
 //Main route
