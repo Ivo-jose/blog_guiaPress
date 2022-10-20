@@ -8,11 +8,14 @@ const app = express();
 const connection = require('./database/connection');
 
 //Importing routes
-
 //CategoriesController
 const categoriesController = require('./Categories/CategoriesControler');
 //ArticlesController
 const articlesController = require('./Articles/ArticlesController');
+
+//Import modules
+const Category = require('./Categories/Category');
+const Article = require('./Articles/Article');
 
 //Setting view engine ejs
 app.set('view engine', 'ejs');

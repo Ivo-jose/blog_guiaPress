@@ -15,5 +15,8 @@ const Category =  connection.define('categories',{
     }
 })
 
+//Update BD (only one time)
+//Category.sync({force:true})
+
 //Export module
 module.exports = Category;
