@@ -1,0 +1,39 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+<div class="container " id="newCategory">
+    <div class="row">
+        <div class="col-4 border mr-2">
+            Menu Lateral
+        </div>
+        <div class="col-8">
+            <div class="container border">
+                <div class="row" id="card">
+                    <div class="col">
+                        <h3>Cadastro de categorias</h3>
+                        <hr>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Nova categoria</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <label for="titleCategory" class="font-weight-bold form-label"><strong>Título da categoria</strong></label>
+                                        <input type="text" name="titleCategory" id="titleCategory" class="form-control" placeholder="Informe o título da categoria ...">
+                                    </div>
+                                    <button class="btn btn-success w-100 hover mt-3">
+                                        <i class="fa-solid fa-plus"></i>
+                                        Cadastrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/endHtml') %>

@@ -4,15 +4,9 @@ const express = require("express");
 const router = express.Router();
 
 //Routes
-//Route view categories
-router.get("/categories", (req,res) => {
-    res.send("ROTAS DE CATEGORIAS")
-});
-
-
-//Route  view to create category (access admin)
-router.get("/admin/categories/new", (req,res) => {
-    res.send("ROTA PARA CRIAR NOVA CATEGORIA")
+//Route view new category
+router.get("/admin/categories/new",(req,res) => {
+    res.render("admin/categories/newCategory");
 })
 
 

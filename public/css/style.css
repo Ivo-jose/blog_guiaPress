@@ -1,3 +1,36 @@
+/* Formatações gerais */
+html, body, .container, #formNewCategory{
+    height: 100%;
+}
+
 body {
     background: #CCC url(../img/bg.png);
+}
+
+.hover:hover {
+    box-shadow: 3px 3px 5px #000;
+    font-weight: bold;
+}
+
+/* Barra de navegação */
+#nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    
+}
+
+#nav a {
+    font-size: 2.5rem;
+}
+
+.color-logo {
+    color: rgb(135, 244, 208);
+}
+
+/* page newCategory */
+#newCategory {
+    margin-top: 100px;
+}
+
+#card {
+    margin: 15% 0;
 }
