@@ -12,6 +12,10 @@ body {
     font-weight: bold;
 }
 
+.color-logo {
+    color: rgb(135, 244, 208);
+}
+
 /* Barra de navegação */
 #nav {
     background-color: rgba(0, 0, 0, 0.8);
@@ -22,9 +26,6 @@ body {
     font-size: 2.5rem;
 }
 
-.color-logo {
-    color: rgb(135, 244, 208);
-}
 
 /* page newCategory */
 #newCategory {
@@ -34,3 +35,18 @@ body {
 #card {
     margin: 15% 0;
 }
+
+/* Partials footer */
+footer {
+    background-color: #000;
+    height: 100px;
+    color: white;
+}
+
+#footer a {
+    font-size: 1.9em;
+}
+
+#footer-logo {
+    padding: 20px 20px 0 15px;
+}    
