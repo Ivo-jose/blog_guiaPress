@@ -1,7 +1,20 @@
 <header class="w-100 fixed-top">
-    <nav class="navbar navbar-expand navbar-dark" id="nav">
+    <nav class="navbar navbar-expand-md navbar-dark" id="nav">
         <div class="container">
-            <a href="../index.ejs" class="navbar-brand">Guia<span class="color-logo">Press</span></a>
+            <a id="logo-nav" href="../index.ejs" class="navbar-brand d-inline-block mr-5">Guia<span class="color-logo">Press</span></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navMenu">
+                <ul class="navbar-nav pt-3">
+                    <li class="nav-item">   
+                        <a href="/admin/categories" class="nav-link">Categorias</a>
+                    </li>
+                    <li class="nav-item">   
+                        <a href="/admin/categories/new" class="nav-link">Nova categoria</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>

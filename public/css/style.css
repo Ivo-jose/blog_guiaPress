@@ -1,5 +1,5 @@
 /* Formatações gerais */
-html, body, .container, #formNewCategory{
+html, body, .container{
     height: 100%;
 }
 
@@ -23,11 +23,11 @@ body {
 }
 
 .espacamento {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 
-#nav a {
+#logo-nav {
     font-size: 2.5rem;
 }
 
