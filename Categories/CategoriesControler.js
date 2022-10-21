@@ -17,7 +17,7 @@ router.post("/categories/save", (req,res) => {
     let title = req.body.titleCategory;
     let slug = title.toLowerCase();
     if(title == undefined || title == null || title == ""){
-        res.redirect("/admin/categories/new");
+        res.redirect("admin/categories/new");
     }
     else {
         Category.create({
@@ -29,6 +29,10 @@ router.post("/categories/save", (req,res) => {
     }
 } );
 
+//Category listing view route
+router.get("/admin/categories", (req,res) => {
+    res.render("admin/categories/index");
+});
 
 //Exports route for use main file
 module.exports = router;
