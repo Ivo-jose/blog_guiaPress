@@ -17,7 +17,7 @@ router.post("/categories/save", (req,res) => {
     let title = req.body.categoryTitle;
     let slug = title.toLowerCase();
     if(title == undefined || title == null || title == ""){
-        res.redirect("admin/categories/new");
+        res.redirect("/admin/categories/new");
     }
     else {
         Category.create({
