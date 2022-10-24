@@ -10,21 +10,22 @@
             <div class="container border">
                 <div class="row" id="card">
                     <div class="col bg-light p-3">
-                        <h3>Cadastro de categorias</h3>
+                        <h3>Edição de categorias</h3>
                         <hr>
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="mb-0">Nova categoria</h2>
+                                <h2 class="mb-0">Edite a categoria</h2>
                             </div>
                             <div class="card-body">
-                                <form action="/categories/save" method="post">
+                                <form action="/categories/update" method="post">
                                     <div class="form-group">
                                         <label for="categoryTitle" class="font-weight-bold form-label"><strong>Título da categoria</strong></label>
-                                        <input type="text" name="categoryTitle" id="categoryTitle" class="form-control" placeholder="Informe o título da categoria ...">
-                                    </div>
-                                    <button type="submit" class="btn btn-success w-100 hover mt-3">
-                                        <i class="fa-solid fa-plus"></i>
-                                        Cadastrar
+                                        <input type="text" name="categoryTitle" id="categoryTitle" class="form-control" placeholder="Informe o título da categoria ..." value="<%= category.title %>">
+                                        <input type="hidden" name="categoryId" value="<%= category.id %>">
+                                    </div> 
+                                    <button type="submit" class="btn btn-warning w-100 hover mt-3">
+                                        <i class="fa-solid fa-pencil"></i>
+                                        Atualizar
                                     </button>
                                 </form>
                             </div>
@@ -35,5 +36,6 @@
         </div>
     </div>
 </div>
+
 <%- include('../../partials/footer') %>
 <%- include('../../partials/endHtml') %>

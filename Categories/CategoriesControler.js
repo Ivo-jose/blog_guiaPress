@@ -14,7 +14,7 @@ router.get("/admin/categories/new",(req,res) => {
 
 //Route of view for insertion in DB
 router.post("/categories/save", (req,res) => {
-    let title = req.body.titleCategory;
+    let title = req.body.categoryTitle;
     let slug = title.toLowerCase();
     if(title == undefined || title == null || title == ""){
         res.redirect("admin/categories/new");
@@ -24,7 +24,7 @@ router.post("/categories/save", (req,res) => {
             title: title,
             slug: slugify(slug)
         }).then(() => {
-            res.redirect("/")
+            res.redirect("/admin/categories")
         })
     }
 } );
@@ -59,5 +59,39 @@ router.post("/categories/delete",(req,res) => {
     }
 })
 
-//Exports route for use main file
+//Route to edit category
+router.get("/admin/categories/edit/:id", (req,res) => {
+    let categoryId = req.params.id;
+    if(isNaN(categoryId)) {
+        res.redirect("/admin/categories");
+    }
+
+    Category.findByPk(categoryId).then(category => {
+        if(category != undefined || category != null || category != ""){
+            res.render("admin/categories/editCategory", {category: category});
+        }
+        else {
+            res.redirect("/admin/categories");
+        }
+    }).catch(err => {
+        res.redirect("/admin/categories");
+    })
+});
+
+//Router to save edited category
+router.post("/categories/update",(req,res) => {
+    let categoryId = req.body.categoryId;
+    let categoryTitle = req.body.categoryTitle;
+    let slug = categoryTitle.toLowerCase();
+
+    Category.update({title: categoryTitle, slug: slugify(slug)},{
+        where:{
+            id: categoryId
+        }
+    }).then(() => {
+        res.redirect("/admin/categories");
+    })
+});
+
+//Exports route for  to use in main file
 module.exports = router;

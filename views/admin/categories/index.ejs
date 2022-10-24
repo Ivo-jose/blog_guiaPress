@@ -25,9 +25,9 @@
                             <td><%= category.title %></td>
                             <td><%= category.slug %></td>
                             <td>
-                                <button class="btn btn-warning btn-sm d-inline-block hover">
+                                <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning btn-sm d-inline-block hover">
                                     <i class="fa-solid fa-pencil"></i>
-                                </button>
+                                </a>
                                 <form action="/categories/delete" method="post" class="d-inline" onsubmit="confirmToDelete(event,this)">
                                     <input type="hidden" name="categoryId" value="<%= category.id %>">
                                     <button class="btn btn-danger btn-sm d-inline-block hover">
