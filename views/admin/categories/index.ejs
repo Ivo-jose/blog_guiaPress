@@ -28,9 +28,12 @@
                                 <button class="btn btn-warning btn-sm d-inline-block hover">
                                     <i class="fa-solid fa-pencil"></i>
                                 </button>
-                                <button class="btn btn-danger btn-sm d-inline-block hover">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                                <form action="/categories/delete" method="post" class="d-inline">
+                                    <input type="hidden" name="categoryId" value="<%= category.id %>">
+                                    <button class="btn btn-danger btn-sm d-inline-block hover">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     <% }) %>

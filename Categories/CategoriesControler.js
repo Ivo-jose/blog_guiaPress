@@ -36,5 +36,28 @@ router.get("/admin/categories", (req,res) => {
     }); 
 });
 
+
+
+//Route to delete category
+router.post("/categories/delete",(req,res) => {
+    let categoryId = req.body.categoryId;
+    if(categoryId != null || categoryId != undefined || categoryId != ""){
+        if(!isNaN(categoryId)){
+
+            Category.destroy({
+                where:{
+                    id : categoryId
+                }
+            }).then(() => { res.redirect("/admin/categories")})
+        }
+        else {
+            res.redirect("/admin/categories");
+        }
+    }
+    else {
+        res.redirect("/admin/categories");
+    }
+})
+
 //Exports route for use main file
 module.exports = router;
