@@ -28,7 +28,7 @@
                                 <button class="btn btn-warning btn-sm d-inline-block hover">
                                     <i class="fa-solid fa-pencil"></i>
                                 </button>
-                                <form action="/categories/delete" method="post" class="d-inline">
+                                <form action="/categories/delete" method="post" class="d-inline" onsubmit="confirmToDelete(event,this)">
                                     <input type="hidden" name="categoryId" value="<%= category.id %>">
                                     <button class="btn btn-danger btn-sm d-inline-block hover">
                                         <i class="fa-solid fa-trash"></i>
@@ -45,3 +45,14 @@
 
 <%- include('../../partials/footer') %>
 <%- include('../../partials/endHtml') %>
+
+<!-- Script to confirm delete -->
+<script>
+    function confirmToDelete(event, form){
+        event.preventDefault();
+        let decision = confirm("Você tem certeza que quer deletar essa categoria?");
+        if(decision) {
+            form.submit();
+        }
+    }    
+</script>
