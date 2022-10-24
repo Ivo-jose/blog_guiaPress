@@ -1,7 +1,7 @@
 <%- include('../../partials/header') %>
 <%- include('../../partials/navbar') %>
 
-<div class="container espacamento">
+<div class="container espacamento" style="margin-bottom: 390px;">
     <div class="row">
         <div class="col-3 border mr-2">
             Menu Lateral
@@ -16,7 +16,7 @@
                             <div class="card-header">
                                 <h2 class="mb-0">Novo artigo</h2>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="">
                                 <form action="" method="post">
                                     <div class="form-group">
                                         <label for="articleTitle" class="form-label"><strong>Título da artigo</strong></label>
@@ -39,6 +39,16 @@
         </div>
     </div>
 </div>
-
 <%- include('../../partials/footer') %>
 <%- include('../../partials/endHtml') %>
+
+<!-- Import TinyMCE -->
+<script src="/tinymce/tinymce.min.js"></script>
+<!-- Setting tinymce -->
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: "#bodyArticle",
+        plugins: 'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    })
+</script>
