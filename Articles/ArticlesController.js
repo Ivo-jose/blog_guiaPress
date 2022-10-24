@@ -1,7 +1,10 @@
 //Importing library
 const express = require("express");
+const slugify = require("slugify");
 //Creating router
 const router = express.Router();
+//Import module
+const Article = require("./Article");
 
 //Routes
 //Route view articles
@@ -11,7 +14,7 @@ router.get("/articles" ,(req,res) => {
 
 //Route view to create new article
 router.get("/admin/articles/new", (req,res) => {
-    res.send("ROTA PARA CRIAÇÃO DE UM NOVO ARTIGO");
+    res.render("admin/articles/newArticle");
 });
 
 //Exporting router

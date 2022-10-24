@@ -3,24 +3,28 @@
 
 <div class="container espacamento">
     <div class="row">
-        <div class="col-4 border mr-2">
+        <div class="col-3 border mr-2">
             Menu Lateral
         </div>
-        <div class="col-8">
+        <div class="col-9">
             <div class="container border">
                 <div class="row" id="card">
                     <div class="col bg-light p-3">
-                        <h3>Cadastro de categorias</h3>
+                        <h3>Cadastro de artigos</h3>
                         <hr>
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="mb-0">Nova categoria</h2>
+                                <h2 class="mb-0">Novo artigo</h2>
                             </div>
                             <div class="card-body">
-                                <form action="/categories/save" method="post">
+                                <form action="" method="post">
                                     <div class="form-group">
-                                        <label for="categoryTitle" class="form-label"><strong>Título da categoria</strong></label>
-                                        <input type="text" name="categoryTitle" id="categoryTitle" class="form-control" placeholder="Informe o título da categoria ...">
+                                        <label for="articleTitle" class="form-label"><strong>Título da artigo</strong></label>
+                                        <input type="text" name="articleTitle" id="articleTitle" class="form-control" placeholder="Informe o título da categoria ...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="bodyArticle"><strong>Artigo</strong></label>
+                                        <textarea class="form-control" name="bodyArticle" id="bodyArticle" cols="30" rows="3" placeholder="Escreva seu artigo aqui..."></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-success w-100 hover mt-3">
                                         <i class="fa-solid fa-plus"></i>
@@ -35,5 +39,6 @@
         </div>
     </div>
 </div>
+
 <%- include('../../partials/footer') %>
 <%- include('../../partials/endHtml') %>
