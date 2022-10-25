@@ -12,7 +12,14 @@ const Category = require("../Categories/Category");
 
 //View route for listing articles
 router.get("/admin/articles" ,(req,res) => {
-    res.render("admin/articles/index");
+    Article.findAll({
+        include:[{
+            model: Category
+        }]
+    }).then(articles => {
+        res.render("admin/articles/index" , {articles: articles});
+    })
+    
 });
 
 //Route view to create new article
