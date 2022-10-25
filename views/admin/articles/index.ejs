@@ -30,9 +30,12 @@
                                 <a href="" class="btn btn-warning btn-sm d-inline-block hover">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
-                                <button class="btn btn-danger btn-sm d-inline-block hover">
-                                   <i class="fa-solid fa-trash"></i>
-                                </button>
+                                <form action="/articles/delete" method="post" class="d-inline" onsubmit="confirmToDelete(event,this)">
+                                    <input type="hidden" name="articleId" value="<%= article.id %>">
+                                    <button class="btn btn-danger btn-sm d-inline-block hover">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     <% }) %>
@@ -44,3 +47,14 @@
 
 <%- include('../../partials/footer') %>
 <%- include('../../partials/endHtml') %>
+
+<!-- Script to confirm delete -->
+<script>
+    function confirmToDelete(event, form){
+        event.preventDefault();
+        let decision = confirm("Você deseja deletar essa artigo?");
+        if(decision) {
+            form.submit();
+        }
+    }    
+</script>

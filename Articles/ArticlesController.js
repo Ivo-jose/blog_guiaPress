@@ -47,5 +47,25 @@ router.post("/articles/save",(req,res) => {
     });
 });
 
+//Route to delete article
+router.post("/articles/delete", (req,res) => {
+    let articleId = req.body.articleId;
+    if(articleId != null || articleId != undefined || articleId != ""){
+        if(!isNaN(articleId)){
+            Article.destroy({
+                where:{
+                    id: articleId
+                }
+            }).then(() => {res.redirect("/admin/articles")});
+        }
+        else {
+            res.redirect("/admin/articles");
+        }
+    }
+    else {
+        res.redirect("/admin/articles");
+    }
+});
+
 //Exporting router
 module.exports = router;
