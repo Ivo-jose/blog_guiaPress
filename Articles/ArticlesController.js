@@ -9,9 +9,10 @@ const Category = require("../Categories/Category");
 
 
 //Routes
-//Route view articles
+
+//View route for listing articles
 router.get("/admin/articles" ,(req,res) => {
-    res.send("ROTAS DE ARTIGOS");
+    res.render("admin/articles/index");
 });
 
 //Route view to create new article
