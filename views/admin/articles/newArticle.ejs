@@ -1,7 +1,7 @@
 <%- include('../../partials/header') %>
 <%- include('../../partials/navbar') %>
 
-<div class="container espacamento" style="margin-bottom: 390px;">
+<div class="container espacamento" style="margin-bottom: 490px;">
     <div class="row">
         <div class="col-3 border mr-2">
             Menu Lateral
@@ -22,9 +22,19 @@
                                         <label for="articleTitle" class="form-label"><strong>Título da artigo</strong></label>
                                         <input type="text" name="articleTitle" id="articleTitle" class="form-control" placeholder="Informe o título da categoria ...">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mt-4">
                                         <label class="form-label" for="bodyArticle"><strong>Artigo</strong></label>
                                         <textarea class="form-control" name="bodyArticle" id="bodyArticle" cols="30" rows="3" placeholder="Escreva seu artigo aqui..."></textarea>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="category" class="form-label"><strong>Selecione uma categoria para o artigo</strong></label>
+                                        <select class="form-select" name="category" id="category">
+                                              <option selected>Selecione uma categoria para o artigo</option>
+                                              <hr>
+                                              <% categories.forEach(category => { %>
+                                                <option value="<%= category.id %>"><%= category.title %></option>
+                                              <% }) %>  
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-success w-100 hover mt-3">
                                         <i class="fa-solid fa-plus"></i>

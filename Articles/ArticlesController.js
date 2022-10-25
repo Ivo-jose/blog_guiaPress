@@ -3,8 +3,10 @@ const express = require("express");
 const slugify = require("slugify");
 //Creating router
 const router = express.Router();
-//Import module
+//Import modules
 const Article = require("./Article");
+const Category = require("../Categories/Category");
+
 
 //Routes
 //Route view articles
@@ -14,7 +16,10 @@ router.get("/articles" ,(req,res) => {
 
 //Route view to create new article
 router.get("/admin/articles/new", (req,res) => {
-    res.render("admin/articles/newArticle");
+
+    Category.findAll().then((categories) => {
+        res.render("admin/articles/newArticle", {categories: categories});
+    })  
 });
 
 //Exporting router
