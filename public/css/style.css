@@ -16,14 +16,19 @@ body {
     color: rgb(135, 244, 208);
 }
 
+.espacamento {
+    margin-top: 120px;
+}
+
 /* Barra de navegação */
 #nav {
     background-color: rgba(0, 0, 0, 0.8);
     
 }
 
-.espacamento {
-    margin-top: 120px;
+#navMenu li a:hover {
+    color: #FFF;
+    font-weight: 900;
 }
 
 
