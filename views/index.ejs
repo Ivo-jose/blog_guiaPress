@@ -1,15 +1,40 @@
 <%- include('partials/header') %>
-<%- include('partials/navbar') %>
+<%- include('partials/homenavbar') %>
 
-<div class="container">
+<div class="container espacamento espacamento-bottom small-screen">
+    <div class="row mb-5 ">
+        <div class="col-sm-12">
+            <hr>
+            <div class="jumbotron text-light p-5" id="jumbotron">
+                <div class="container">
+                    <h1 class="display-3">Bem vindos ao blog GuiaPress</h1>
+                    <p class="lead text-justify ">
+                        Este blog foi criado para que developers, programmer que estão iniciando tirem sua dúvidas. E para os
+                        mais experientes uma ótima oportunidade de compartilhar seus conhecimentos!
+                    </p>
+                    <hr>
+                    <p class="lead">
+                      Galera divirtam-se ! 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-12">
-            <h1 class="display-1 mt-5git">Hello world !</h1>
-
-            <button class="btn btn-danger">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-
+        <div class="col-sm-3 border">
+            Menu lateral
+        </div>
+        <div class="col-sm-9">
+            <% articles.forEach(article => { %>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <%= article.title %>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="btn btn-success w-100 hover">Ler artigo</a>
+                    </div>
+                </div>
+            <% }) %>
         </div>    
     </div>
 </div>

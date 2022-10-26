@@ -20,6 +20,15 @@ body {
     margin-top: 120px;
 }
 
+.espacamento-bottom {
+    margin-bottom: 36% ;
+}
+
+.espacamento-bottom1 {
+    margin-bottom: 10% ;
+}
+
+
 /* Barra de navegação */
 #nav {
     background-color: rgba(0, 0, 0, 0.8);
@@ -46,7 +55,13 @@ body {
     margin: 15% 0;
 }
 
-/* page categories (table) */
+
+/* Home page */
+#jumbotron {
+    border: 2px solid gray;
+    border-radius: 30px;
+    background: linear-gradient(158deg, rgba(38,50,45,1) 0%, rgba(2,6,4,1) 1%, rgba(4,255,197,1) 100%);
+}
 
 
 /* Partials footer */
@@ -62,4 +77,12 @@ footer {
 
 #footer-logo {
     padding: 20px 20px 0 15px;
+}    
+
+
+/* Media queries */
+@media (max-width: 991.98px) {
+    .small-screen {
+        margin-bottom: 145%;
+    }
 }    
