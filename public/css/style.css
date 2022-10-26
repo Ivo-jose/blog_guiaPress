@@ -61,6 +61,7 @@ body {
     border: 2px solid gray;
     border-radius: 30px;
     background: linear-gradient(158deg, rgba(38,50,45,1) 0%, rgba(2,6,4,1) 1%, rgba(4,255,197,1) 100%);
+    box-shadow: 3px 3px 5px #000;
 }
 
 

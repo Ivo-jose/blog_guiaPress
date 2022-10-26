@@ -53,7 +53,24 @@ app.get("/", (req,res) => {
     })
 })
 
-
+//View page route only one article
+app.get("/:slug",(req,res) => {
+    let slug = req.params.articleSlug;
+    Article.findOne({
+        where:{
+            slug: slug
+        }
+    }).then(article => {
+        if(article != undefined || article != null || article != ""){
+            res.render("/" ,{article: article})
+        }
+        else {
+            res.redirect("/")
+        }
+    }).catch(err => {
+        res.redirect("/")
+    })
+});
 
 //Starting serve
 app.listen(8080, () => {
