@@ -48,21 +48,25 @@ app.use("/", articlesController );
 
 //Main route
 app.get("/", (req,res) => {
-    Article.findAll().then(articles => {
+    Article.findAll({
+        order:[
+            ['id','DESC']
+        ]
+    }).then(articles => {
         res.render("index", {articles: articles});
     })
 })
 
 //View page route only one article
 app.get("/:slug",(req,res) => {
-    let slug = req.params.articleSlug;
+    let slug = req.params.slug;
     Article.findOne({
         where:{
             slug: slug
         }
     }).then(article => {
         if(article != undefined || article != null || article != ""){
-            res.render("/" ,{article: article})
+            res.render("articles", {article: article})
         }
         else {
             res.redirect("/")

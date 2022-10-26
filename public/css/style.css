@@ -86,4 +86,8 @@ footer {
     .small-screen {
         margin-bottom: 145%;
     }
+
+    .espacamento-bottom1 {
+        margin-bottom: 25%;
+    }
 }    
