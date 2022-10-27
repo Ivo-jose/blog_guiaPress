@@ -1,5 +1,5 @@
 /* Formatações gerais */
-html, body, .container{
+body, .container{
     height: 100%;
 }
 
@@ -21,18 +21,21 @@ body {
 }
 
 .espacamento-bottom {
-    margin-bottom: 36% ;
+    margin-bottom: 36rem ;
 }
 
 .espacamento-bottom1 {
     margin-bottom: 10% ;
 }
 
-
 /* Barra de navegação */
 #nav {
     background-color: rgba(0, 0, 0, 0.8);
     
+}
+
+#navMenu {
+    margin-right: 100px;
 }
 
 #navMenu li a:hover {
@@ -45,6 +48,19 @@ body {
     font-size: 2.5rem;
 }
 
+/* Barra de navegação home page */
+#menuSuspenso {
+    background: linear-gradient(180deg, rgba(38,50,45,1) 0%, rgba(2,6,4,1) 1%, rgba(4,255,197,1) 100%);
+}
+
+#menuSuspenso li a {
+    color:#FFF
+}
+
+#menuSuspenso li a:hover {
+    background:none;
+    font-weight: bold;
+}
 
 /* page newCategory */
 #newCategory {

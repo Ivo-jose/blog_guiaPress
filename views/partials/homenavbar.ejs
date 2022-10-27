@@ -10,6 +10,21 @@
                     <li class="nav-item">   
                         <a href="/" class="nav-link">Home</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown">
+                          Categorias
+                        </a>
+                        <ul class="dropdown-menu" id="menuSuspenso"> 
+                            <% categories.forEach(category => { %>
+                                <li>
+                                    <a class="dropdown-item" href="/category/<%= category.slug %>"><%= category.title %></a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li> 
+                            <% }) %>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

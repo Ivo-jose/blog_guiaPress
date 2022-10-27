@@ -53,9 +53,12 @@ app.get("/", (req,res) => {
             ['id','DESC']
         ]
     }).then(articles => {
-        res.render("index", {articles: articles});
-    })
-})
+
+        Category.findAll().then(categories => {
+            res.render("index", {articles: articles , categories: categories});
+        })
+    });
+});
 
 //View page route only one article
 app.get("/:slug",(req,res) => {
@@ -66,7 +69,9 @@ app.get("/:slug",(req,res) => {
         }
     }).then(article => {
         if(article != undefined || article != null || article != ""){
-            res.render("articles", {article: article})
+            Category.findAll().then(categories => {
+                res.render("articles", {article: article, categories: categories})
+            })
         }
         else {
             res.redirect("/")
@@ -74,6 +79,29 @@ app.get("/:slug",(req,res) => {
     }).catch(err => {
         res.redirect("/")
     })
+});
+
+//View route of filtred article by category
+app.get("/category/:slug", (req,res) => {
+    let slug = req.params.slug
+    Category.findOne({
+        where: {
+            slug: slug
+        },
+        include: [{model: Article}]
+    }).then(category => {
+        if(category != null || category != undefined || category != ""){
+            
+            Category.findAll().then(categories => {
+                res.render("index", {articles: category.articles, categories:categories})
+            })
+        }
+        else {
+            res.redirect("/")
+        }
+    }).catch(err => {
+        res.redirect("/")
+    });
 });
 
 //Starting serve
