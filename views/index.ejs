@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3 border">
+        <div class="col-sm-3 border rounded">
             Menu lateral
         </div>
         <div class="col-sm-9">
@@ -37,7 +37,17 @@
             <% }) %>
         </div>    
     </div>
+    <div class="row mt-3 border rounded">
+        <div class="col-sm-12">
+            <div class="p-4">
+                <a class="btn btn-outline-success hover next mb-3" href="/articles/page/2">
+                    Next 
+                    <i class="fa-solid fa-angles-right"></i>
+                </a>
+            </div> 
+            <div style="clear: both ;"></div>
+        </div>  
+    </div>
 </div>
 <%- include('partials/footer') %>
-
 <%- include('partials/endHtml') %>

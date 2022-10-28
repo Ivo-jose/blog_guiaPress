@@ -1,0 +1,60 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/homenavbar') %>
+
+<div class="container espacamento espacamento-bottom1 small-screen">
+    <div class="row mb-5 ">
+        <div class="col-sm-12">
+            <hr>
+            <div class="jumbotron text-light p-5" id="jumbotron">
+                <div class="container">
+                    <h1 class="display-3">Paginação de artigos!!!</h1>
+                    <hr>
+                    <p class="lead text-justify ">
+                       Encontre algo te agrade e ensine e te divita!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 border">
+            Menu lateral
+        </div>
+        <div class="col-sm-9">
+            <% result.articles.rows.forEach(article => { %>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <strong><%= article.title %></strong>
+                    </div>
+                    <div class="card-body">
+                        <a href="/<%= article.slug %>" class="btn btn-success w-100 hover">Ler artigo</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>    
+    </div>
+    <div class="col-sm-12">
+        <div class="p-4">
+            <% if(result.page > 2) { %>
+                <a class="btn btn-outline-success hover previous mb-3 " href="/articles/page/<%= result.page - 1%>">
+                    <i class="fa-solid fa-angles-left"></i>
+                    Prev
+                </a>
+            <% } else if(result.page == 2) {%>
+                <a class="btn btn-outline-success hover previous mb-3 " href="/">
+                    <i class="fa-solid fa-angles-left"></i>
+                    Prev
+                </a>
+            <% } %>    
+            <% if(result.next) { %>
+                <a class="btn btn-outline-success hover next mb-3" href="/articles/page/<%= result.page + 1 %>">
+                    Next 
+                    <i class="fa-solid fa-angles-right"></i>
+                </a>
+            <% } %>    
+        </div> 
+        <div style="clear: both ;"></div>
+    </div> 
+</div>
+<%- include('../../partials/footer') %>
+<%- include('../../partials/endHtml') %>

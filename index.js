@@ -13,9 +13,11 @@ const categoriesController = require('./Categories/CategoriesControler');
 //ArticlesController
 const articlesController = require('./Articles/ArticlesController');
 
+
 //Import modules
 const Category = require('./Categories/Category');
 const Article = require('./Articles/Article');
+
 
 //Setting view engine ejs
 app.set('view engine', 'ejs');
@@ -44,6 +46,8 @@ connection
 app.use("/", categoriesController);    
 //Telling express to use articlesController
 app.use("/", articlesController );
+//Telling express ti use usersController
+
 
 
 //Main route
@@ -51,7 +55,8 @@ app.get("/", (req,res) => {
     Article.findAll({
         order:[
             ['id','DESC']
-        ]
+        ],
+        limit: 4
     }).then(articles => {
 
         Category.findAll().then(categories => {
@@ -68,7 +73,7 @@ app.get("/:slug",(req,res) => {
             slug: slug
         }
     }).then(article => {
-        if(article != undefined || article != null || article != ""){
+        if(article != undefined || article != null){
             Category.findAll().then(categories => {
                 res.render("articles", {article: article, categories: categories})
             })
@@ -90,7 +95,7 @@ app.get("/category/:slug", (req,res) => {
         },
         include: [{model: Article}]
     }).then(category => {
-        if(category != null || category != undefined || category != ""){
+        if(category != null || category != undefined){
             
             Category.findAll().then(categories => {
                 res.render("index", {articles: category.articles, categories:categories})

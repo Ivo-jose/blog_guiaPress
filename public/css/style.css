@@ -80,6 +80,16 @@ body {
     box-shadow: 3px 3px 5px #000;
 }
 
+/* 
+Botoes paginacao */
+.next {
+    float: right;
+}
+
+.previous {
+    float: left;
+}
+
 
 /* Partials footer */
 footer {
@@ -95,6 +105,7 @@ footer {
 #footer-logo {
     padding: 20px 20px 0 15px;
 }    
+
 
 
 /* Media queries */
