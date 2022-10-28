@@ -12,11 +12,14 @@ const connection = require('./database/connection');
 const categoriesController = require('./Categories/CategoriesControler');
 //ArticlesController
 const articlesController = require('./Articles/ArticlesController');
+//UsersController
+const usersController = require('./Users/UsersController');
 
 
 //Import modules
 const Category = require('./Categories/Category');
 const Article = require('./Articles/Article');
+const User = require('./Users/User')
 
 
 //Setting view engine ejs
@@ -47,7 +50,7 @@ app.use("/", categoriesController);
 //Telling express to use articlesController
 app.use("/", articlesController );
 //Telling express ti use usersController
-
+app.use("/", usersController);
 
 
 //Main route
