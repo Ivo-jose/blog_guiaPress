@@ -44,7 +44,10 @@ router.post("/articles/save",(req,res) => {
         categoryId: categoryId
     }).then(() => {
         res.redirect("/admin/articles");
-    });
+    }).
+    catch(err => {
+        res.redirect("/admin/articles")
+    })
 });
 
 //Route to delete article
@@ -66,6 +69,39 @@ router.post("/articles/delete", (req,res) => {
         res.redirect("/admin/articles");
     }
 });
+
+//Route for articles pagination
+router.get("/articles/page/:num", (req,res) => {
+    let page = req.params.num;
+    let offset = 0;
+    if(isNaN(page) || page == 1){
+        offset = 0;
+    }else {
+        offset = parseInt(page) * 6;
+    }
+
+
+    Article.findAndCountAll({
+        limit: 6,
+        offset: offset
+    }).then(articles => {
+
+        let next;
+        if(offset + 6 > articles.count){
+            next = false;
+        }
+        else {
+            next = true;
+        }
+
+        let result = {
+            next: next,
+            articles: articles
+        }
+
+        res.json(result)
+    })
+})
 
 //Exporting router
 module.exports = router;
