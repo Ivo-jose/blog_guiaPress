@@ -10,6 +10,7 @@ body {
 .hover:hover {
     box-shadow: 3px 3px 5px #000;
     font-weight: bold;
+    color: #FFF !important;
 }
 
 .color-logo {
@@ -39,7 +40,7 @@ body {
 }
 
 #navMenu li a:hover {
-    color: #FFF;
+    
     font-weight: 900;
 }
 
