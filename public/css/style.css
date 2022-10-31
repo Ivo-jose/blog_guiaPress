@@ -90,6 +90,12 @@ Botoes paginacao */
     float: left;
 }
 
+/* page create */
+#cadastro {
+    margin: 40px 0;
+}
+
+
 
 /* Partials footer */
 footer {
