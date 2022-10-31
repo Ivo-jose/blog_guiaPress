@@ -6,12 +6,14 @@ const router = express.Router();
 //Import modules
 const Article = require("./Article");
 const Category = require("../Categories/Category");
+//Import middleware
+const adminAuth = require("../middlewares/adminAuth");
 
 
 //Routes
 
 //View route for listing articles
-router.get("/admin/articles" ,(req,res) => {
+router.get("/admin/articles", adminAuth ,(req,res) => {
     Article.findAll({
         include:[{
             model: Category
@@ -23,7 +25,7 @@ router.get("/admin/articles" ,(req,res) => {
 });
 
 //Route view to create new article
-router.get("/admin/articles/new", (req,res) => {
+router.get("/admin/articles/new", adminAuth, (req,res) => {
 
     Category.findAll().then((categories) => {
         res.render("admin/articles/newArticle", {categories: categories});
@@ -31,7 +33,7 @@ router.get("/admin/articles/new", (req,res) => {
 });
 
 //View route for inserting articles in DB
-router.post("/articles/save",(req,res) => {
+router.post("/articles/save", adminAuth,(req,res) => {
     let articleTitle = req.body.articleTitle;
     let slug = articleTitle.toLowerCase();
     let bodyArticle = req.body.bodyArticle;
@@ -51,7 +53,7 @@ router.post("/articles/save",(req,res) => {
 });
 
 //Route to delete article
-router.post("/articles/delete", (req,res) => {
+router.post("/articles/delete", adminAuth, (req,res) => {
     let articleId = req.body.articleId;
     if(articleId != null || articleId != undefined || articleId != ""){
         if(!isNaN(articleId)){

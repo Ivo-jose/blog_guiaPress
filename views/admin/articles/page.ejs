@@ -24,7 +24,7 @@
             <% result.articles.rows.forEach(article => { %>
                 <div class="card mb-4">
                     <div class="card-header">
-                        <strong><%= article.title %></strong>
+                        <strong><%- article.title %></strong>
                     </div>
                     <div class="card-body">
                         <a href="/<%= article.slug %>" class="btn btn-success w-100 hover">Ler artigo</a>
