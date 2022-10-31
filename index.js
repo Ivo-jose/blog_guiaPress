@@ -32,7 +32,7 @@ app.use(session({
     saveUninitialized: true,
     secret: "qu4lqu3rC0154Al34t0r10",
     cookie: {
-        maxAge: 30000
+        maxAge: 604800000
     }
 }))
 
@@ -60,8 +60,11 @@ connection
 app.use("/", categoriesController);    
 //Telling express to use articlesController
 app.use("/", articlesController );
-//Telling express ti use usersController
+//Telling express to use usersController
 app.use("/", usersController);
+
+
+
 
 
 //Main route
