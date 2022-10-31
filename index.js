@@ -1,6 +1,7 @@
 //Importing libraries
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 //Creating instance of express
 const app = express();
 
@@ -25,7 +26,17 @@ const User = require('./Users/User')
 //Setting view engine ejs
 app.set('view engine', 'ejs');
 
-//Setting express to work static file
+//Setting sessoin
+app.use(session({
+    resave: false, 
+    saveUninitialized: true,
+    secret: "qu4lqu3rC0154Al34t0r10",
+    cookie: {
+        maxAge: 30000
+    }
+}))
+
+//Using express to work static file
 app.use(express.static('public'))
 
 //Use body-parser
