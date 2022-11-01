@@ -7,6 +7,10 @@ body {
     background: #CCC url(../img/bg.png);
 }
 
+a{
+    text-decoration: none;
+}
+
 .hover:hover {
     box-shadow: 3px 3px 5px #000;
     font-weight: bold;
@@ -81,6 +85,23 @@ body {
     box-shadow: 3px 3px 5px #000;
 }
 
+
+/* Lateral */
+.lateral {
+    background: url(../img/fundo-caixa.png);
+    padding: 20px;
+}
+
+.menuLateral {
+    background-color: #FFF;
+    padding: 13px;
+}
+
+.menuLateral a:hover {
+    font-weight: bold;
+    color: rgb(63, 203, 157);
+}
+
 /* 
 Botoes paginacao */
 .next {
@@ -123,5 +144,9 @@ footer {
 
     .espacamento-bottom1 {
         margin-bottom: 25%;
+    }
+
+    .lateral {
+        display: none;
     }
 }    

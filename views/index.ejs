@@ -21,8 +21,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3 border rounded">
-            Menu lateral
+        <div class="col-sm-3 border rounded lateral">
+            <div class="row">
+                <div class="col-12">
+                    <div class="menuLateral">
+                        <h3>Menu lateral</h3>
+                    </div>    
+                </div>
+                <div class="col-12">
+                    <div class="menuLateral mt-4">
+                        <div class="list-group">
+                            <h4>Categorias</h4>
+                            <% categories.forEach(category => { %>
+                                <a href="" class="list-group-item text-truncate"><%=category.title%></a>
+                            <% }) %>
+                        </div>
+                    </div>    
+                </div>
+            </div>
         </div>
         <div class="col-sm-9">
             <% articles.forEach(article => { %>
