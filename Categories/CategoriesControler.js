@@ -5,6 +5,8 @@ const slugify = require("slugify");
 const router = express.Router();
 //Import Module
 const Category = require("./Category");
+//Import middleware
+const adminAuth = require("../middlewares/adminAuth");
 
 //Routes
 //Route view new category (access admin)
@@ -30,7 +32,7 @@ router.post("/categories/save", (req,res) => {
 } );
 
 //Category listing view route
-router.get("/admin/categories", (req,res) => {
+router.get("/admin/categories", adminAuth,(req,res) => {
     Category.findAll().then((categories) => {
         res.render("admin/categories/index", {categories: categories});
     }); 
@@ -60,7 +62,7 @@ router.post("/categories/delete",(req,res) => {
 })
 
 //Route to edit category
-router.get("/admin/categories/edit/:id", (req,res) => {
+router.get("/admin/categories/edit/:id", adminAuth, (req,res) => {
     let categoryId = req.params.id;
     if(isNaN(categoryId)) {
         res.redirect("/admin/categories");

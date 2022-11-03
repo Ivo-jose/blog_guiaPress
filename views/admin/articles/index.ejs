@@ -27,7 +27,9 @@
                             <td><%= article.slug %></td>
                             <td><%= article.category.title %></td>
                             <td>
-                                <a href="" class="btn bt"></a>
+                                <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning btn-sm hover ">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
                                 <form action="/articles/delete" method="post" class="d-inline" onsubmit="confirmToDelete(event,this)">
                                     <input type="hidden" name="articleId" value="<%= article.id %>">
                                     <button class="btn btn-danger btn-sm d-inline-block hover">

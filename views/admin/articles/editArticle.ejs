@@ -1,0 +1,66 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+<div class="container espacamento espacamento-bottom1 small-screen">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="container border">
+                <div class="row" id="card">
+                    <div class="col bg-light p-3">
+                        <h3>Edição de artigo</h3>
+                        <hr>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Edite o artigo</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="/articles/update" method="post">
+                                    <div class="form-group">
+                                        <input type="hidden" name="articleId" id="artilceId" value="<%= article.id %>">
+                                        <label for="articleTitle" class="form-label"><strong>Título da artigo</strong></label>
+                                        <input type="text" name="articleTitle" id="articleTitle" class="form-control" placeholder="Informe o título da categoria ..." value="<%= article.title %>">
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label" for="bodyArticle"><strong>Artigo</strong></label>
+                                        <textarea class="form-control" name="bodyArticle" id="bodyArticle" cols="30" rows="3" placeholder="Escreva seu artigo aqui..."><%= article.body %></textarea>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="category" class="form-label"><strong>Selecione uma categoria para o artigo</strong></label>
+                                        <select class="form-select" name="category" id="category">
+                                            <option >Selecione uma categoria para o artigo</option>
+                                              <hr>
+                                              <% categories.forEach(category => { %>
+                                                <% if(category.id == article.categoryId){ %>
+                                                     <option selected value="<%= category.id %>"><%= category.title %></option>
+                                                <%} else { %>
+                                                    <option value="<%= category.id %>"><%= category.title %></option>
+                                                <% } %>    
+                                              <% }) %>  
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning w-100 hover mt-3">
+                                        <i class="fa-solid fa-pencil"></i>
+                                        Atualizar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../../partials/footer') %>
+<%- include('../../partials/endHtml') %>
+
+<!-- Import TinyMCE -->
+<script src="/tinymce/tinymce.min.js"></script>
+<!-- Setting tinymce -->
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: "#bodyArticle",
+        plugins: 'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    })
+</script>

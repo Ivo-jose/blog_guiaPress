@@ -72,6 +72,48 @@ router.post("/articles/delete", adminAuth, (req,res) => {
     }
 });
 
+//Route to edit articles
+router.get("/admin/articles/edit/:id", adminAuth ,(req,res) => {
+    let id = parseInt(req.params.id);
+    if(isNaN(id)) {
+        res.redirect("/admin/articles/index");
+    }
+
+    Article.findByPk(id).then(article => {
+        if(article != undefined){
+            Category.findAll().then( categories => {
+                res.render("admin/articles/editArticle", {article: article, categories: categories});
+            })
+        }
+        else {
+            res.redirect("/admin/articles/index");
+        }
+            
+    }).catch(err => {
+        res.redirect("/admin/articles/index");  
+    });
+    
+});
+
+
+//Route to update article
+router.post("/articles/update", (req,res) => {
+    let id = parseInt(req.body.articleId);
+    let title = req.body.articleTitle;
+    let slug = title.toLowerCase();
+    let body = req.body.bodyArticle;
+    let categoryId = req.body.category;
+
+    Article.update({title: title, slug: slugify(slug), body:body, categoryId: categoryId},{
+            where:{
+                id:id
+            }
+    }).then(()=> {
+        res.redirect("/admin/articles");
+    });
+    
+});
+
 //Route for articles pagination
 router.get("/articles/page/:num", (req,res) => {
     let page = req.params.num;
